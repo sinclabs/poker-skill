@@ -1,0 +1,20 @@
+{
+  "name": "poker-fkill",
+  "version": "0.0.0",
+  "description": "A Poker dealer skill for furhat",
+  "scripts": {
+    "start": "concurrently --kill-others \"tsc -w\" \"nodemon dist/index.js\"",
+    "build": "tsc",
+    "serve": "nodemon dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Subramanian Alagappan",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "pokersolver": "^2.1.2"
+  }
+}
