@@ -26,6 +26,16 @@ class Game {
         // Shuffle the deck
         this.deck = cf.shuffleDeck(this.deck)
     }
+
+    deal(player: Player, numOfCards: number) {
+        let playerHandDeck: Array<Card> = []
+        let dealResult = cf.dealCards(this.deck, numOfCards)
+
+        this.deck = dealResult.mainDeck
+        playerHandDeck = dealResult.dealtDeck
+
+        player.hand.concat(...playerHandDeck)
+    }
 }
  
 let game = new Game()

@@ -1,4 +1,4 @@
-import { Card, HEARTS, SPADES, CLUBS, DIAMONDS } from './Card'
+import { Card } from './Card'
 
 /* Method to shuffle a card deck
 ** Implements Knuth Shuffle algorithm
@@ -45,9 +45,27 @@ let getCardNotation = (card: Card, suitLetterMaps: any) => {
     return valueLetter + suitLetter
 }
 
+// returns an object with two decks. First: original deck, Second: deck of cards dealt
+let dealCards = (incomingDeck: Array<Card>, numOfCards: number) => {
+    let mainDeck = incomingDeck
+    let dealtDeck: Array<Card>
+
+    // Deal the given number of cards in a deck 
+    dealtDeck = mainDeck.slice(0, numOfCards)
+
+    // Mutating! remove the dealt cards from the deck
+    mainDeck.splice(0, numOfCards)
+
+    return {
+        mainDeck,
+        dealtDeck,
+    }
+}
+
 export = {
     shuffleDeck,
-    getCardNotation
+    getCardNotation,
+    dealCards,
 }
 
 
